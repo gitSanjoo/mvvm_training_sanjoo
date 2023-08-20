@@ -5,7 +5,7 @@ import com.sanjoo.mvvm_domain.repo_interface.CuisinesRepo
 
 class GetAllCuisineUseCase(val cuisinesRepo: CuisinesRepo) {
 
-    fun execute():List<CuisineEntity>{
+    suspend fun execute():List<CuisineEntity>{
         return cuisinesRepo.getAllCuisines()
     }
 

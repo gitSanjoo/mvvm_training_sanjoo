@@ -5,6 +5,6 @@ import com.sanjoo.mvvm_domain.entities.CuisineEntity
 
 interface CuisinesRepo {
 
-    fun getAllCuisines(): List<CuisineEntity>
+    suspend fun getAllCuisines(): List<CuisineEntity>
 
 }

@@ -6,7 +6,7 @@ class ApiServiceClass {
 
     fun getApiService(retrofitBuilder: Retrofit.Builder): ApiService {
         return retrofitBuilder
-            .baseUrl("base_url_will_be_passed_here")
+            .baseUrl("http://192.168.1.3:3000/")
             .build()
             .create(ApiService::class.java)
     }

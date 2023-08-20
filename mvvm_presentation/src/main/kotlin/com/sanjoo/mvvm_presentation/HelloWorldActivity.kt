@@ -5,8 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.lifecycleScope
 import com.sanjoo.mvvm_domain.GetAllCuisineUseCase
 import com.sanjoo.mvvm_presentation.databinding.ActivityHelloWorldBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class HelloWorldActivity:AppCompatActivity() {
 
@@ -17,6 +20,9 @@ class HelloWorldActivity:AppCompatActivity() {
 
         val getAllCuisineUseCase=GetAllCuisineUseCase(SingletonObjectsProvider.cuisineRepoImpl)
 
-        Log.d("cuisineDataLog","${getAllCuisineUseCase.execute()}")
+        lifecycleScope.launch(Dispatchers.IO) {
+
+            Log.d("cuisineDataLog", "${getAllCuisineUseCase.execute()}")
+        }
     }
 }
