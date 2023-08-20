@@ -20,9 +20,11 @@ class HelloWorldActivity:AppCompatActivity() {
 
         val getAllCuisineUseCase=GetAllCuisineUseCase(SingletonObjectsProvider.cuisineRepoImpl)
 
-        lifecycleScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.Main) {
 
             Log.d("cuisineDataLog", "${getAllCuisineUseCase.execute()}")
+
+            binding.text.text=getAllCuisineUseCase.execute().toString()
         }
     }
 }
