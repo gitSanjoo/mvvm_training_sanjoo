@@ -22,7 +22,7 @@ class HelloWorldActivity:AppCompatActivity() {
         helloWorldViewModel=ViewModelProvider(this).get(HelloWorldViewModel::class.java)
         binding=DataBindingUtil.setContentView(this,R.layout.activity_hello_world)
         initCollectors()
-        helloWorldViewModel.getAllCuisines()
+        helloWorldViewModel.getAllCuisinesFromApi()
 
     }
 

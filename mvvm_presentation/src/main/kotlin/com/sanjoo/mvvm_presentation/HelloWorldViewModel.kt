@@ -17,10 +17,10 @@ class HelloWorldViewModel : ViewModel() {
     private val _allCuisines=MutableStateFlow<List<CuisineEntity>>(ArrayList())
     val allCuisines: StateFlow<List<CuisineEntity>> get() = _allCuisines
 
-    fun getAllCuisines(){
+    fun getAllCuisinesFromApi(){
         val getAllCuisineUseCase= GetAllCuisineUseCase(SingletonObjectsProvider.cuisineRepoImpl)
 
-        viewModelScope.launch(Dispatchers.Main) {
+        viewModelScope.launch(Dispatchers.IO) {
             _allCuisines.value=getAllCuisineUseCase.execute()
         }
     }
