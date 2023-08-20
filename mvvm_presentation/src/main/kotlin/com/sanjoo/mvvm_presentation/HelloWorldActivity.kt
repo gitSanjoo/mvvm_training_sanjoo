@@ -21,20 +21,15 @@ class HelloWorldActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         helloWorldViewModel=ViewModelProvider(this).get(HelloWorldViewModel::class.java)
         binding=DataBindingUtil.setContentView(this,R.layout.activity_hello_world)
-
-        helloWorldViewModel.getAllCuisines()
-
         initCollectors()
+        helloWorldViewModel.getAllCuisines()
 
     }
 
     private fun initCollectors(){
         lifecycleScope.launch {
             helloWorldViewModel.allCuisines.collect {
-
-
                 Log.d("cuisineDataLog", "$it")
-
                 binding.text.text=it.toString()
             }
         }
